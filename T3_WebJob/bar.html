@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.js"></script>
+
+<script>
+  function createMyChart(obj)
+  {
+    var ctx = document.getElementById("myChart");
+//    var myLabels = [];
+    var myLabels = new Array(obj[0].length-1) ;
+    for(var i=0;i<obj[0].length-1;i++)
+    {
+      myLabels[i] = "" +obj[0][i]+"-"+obj[0][i+1] ;
+    }
+    alert(myLabels[0]);
+
+    var data = {
+        labels: myLabels,
+        datasets: [
+            {
+                label: "Company dataset",
+/*
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+*/
+                borderWidth: 1,
+//                data: [65, 59, 80, 81, 56, 55, 40],
+                data: obj[1],
+            }
+        ]
+    };
+    var myBarChart = new Chart(ctx, {
+          type: 'bar',
+              data: data,
+            options: {
+                  scales: {
+                      xAxes: [{
+                          stacked: true
+                      }],
+                      yAxes: [{
+                          stacked: true
+                      }]
+                  }
+              }
+        });
+}
+
+</script>
+
+<script>
+  function setJsonValue()
+  {
+//    alert("CAme here 1");
+    var text = '<!--CHARTDATA-->';
+    obj = JSON.parse(text);
+    document.getElementById("jsonObjectData").innerHTML = obj[1];
+//    alert("CAme here 2");
+    createMyChart(obj);
+  }
+</script>
+</head>
+<body onload="setJsonValue()">
+
+<h1>Analytics</h1>
+<p>Histogram for Companies registered in Telangana Year Wise</p>
+<div id='jsonObjectData'></div>
+<canvas id="myChart" width="200" height="200"></canvas>
+</body>
+</html>

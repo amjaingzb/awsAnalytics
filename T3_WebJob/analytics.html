@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+</script>
+<script>
+  function setJsonValue()
+  {
+//    alert("CAme here 1");
+    var text = '<!--CHARTDATA-->';
+    obj = JSON.parse(text);
+    document.getElementById("jsonObjectData").innerHTML = obj[1];
+//    alert("CAme here 2");
+  }
+</script>
+</head>
+<body onload="setJsonValue()">
+
+<h1>Analytics</h1>
+<p>Histogram for Companies registered in Telangana Year Wise</p>
+<div id='jsonObjectData'></div>
+</body>
+</html>

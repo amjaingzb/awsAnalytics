@@ -1,0 +1,6 @@
+
+Till 24 Sep, 2016
+Make a Module (java program) to load the CSV file and dump a particular column to file
+Make a Module (Java/R/etc) to determine tally count from a file containing years
+Display Results on web page
+Draw a chart on web page

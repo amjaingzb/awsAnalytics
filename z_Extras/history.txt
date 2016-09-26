@@ -1,0 +1,212 @@
+ cat ~/a2/pom.xml
+ cat ~/a2/src/main/java/com/swiftthoughts/App.java
+ cat cmd.sh
+ cat extractColumn.sh
+ cat git.pwd
+ cat history.txt
+ cat history.txt | awk '{$1="" ; print $0}' | sort -u
+ cat history.txt | awk '{$1="" ; print $0}' | sort -u | wc -l
+ cat history.txt | egrep "apt-get|npm" | awk '{$1="" ; print $0}' | sort -u
+ cat history.txt | grep apt-get
+ cat history.txt | grep apt-get | awk '{$1="" ; print $0}'
+ cat history.txt | grep apt-get | awk '{$1="" ; print $0}' | sort -u
+ cat history.txt | grep apt-get | awk '{print $0}'
+ cat history.txt | grep apt-get | awk '{print "$2"}'
+ cat history.txt | grep apt-get | awk '{print $2}'
+ cat history.txt | grep apt-get | cut -d " " -f1
+ cat history.txt | grep apt-get | cut -d " " -f2
+ cat history.txt | grep apt-get | cut -d " " -f3
+ cat history.txt | grep apt-get | cut -f1
+ cat history.txt | grep npm | awk '{$1="" ; print $0}' | sort -u
+ cat myScripts.sh
+ cat output.txt | sort -u | more
+ cat output.txt | sort -u | wc -l
+ cat packages.txt
+ cat T2_freqCount/.RData
+ cat TBD.txt
+ cd
+ cd ../
+ cd ../../
+ cd analytics/
+ cd Analytics/
+ cd chart.js/
+ cd fiddle/
+ cd Helper/
+ cd /home/ubuntu/meteor
+ cd javascripts/
+ cd meteor
+ cd meteor/
+ cd Node/
+ cd node_modules/
+ cd rawDataSets/
+ cd samples/
+ cd T1_splitCSV/
+ cd T2_freqCount/
+ cd ../T2_freqCount/.RData
+ cd T3_WebJob/
+ cd Work/
+ cd Work/Analytics/
+ chmod +x myScripts.sh
+ clear
+ clear ; echo TREE ; echo ; tree -L 2
+ cp ~/DustBin/history.txt .
+ cp history.txt DustBin/
+ curl https://install.meteor.com/ | sh
+ date
+ ./extractColumn.sh
+ git add .
+ git add .gitignore
+ git add -- node_modules/amit.readme
+ git add -- rawDataSets/README
+ git add -- README.amit.git
+ git add -- T1_splitCSV/company_master_data_upto_Mar_2015_Telangana.csv
+ git add T3_WebJob/bar.html
+ git commit
+ git commit -m "First commit"
+ git config --global user.name "Amit Jain"
+ git config --list
+ git diff T3_WebJob/bar.html
+ git help add
+ git help push
+ git help reset
+ git init
+ git push -u origin master
+ git remote add origin https://github.com/amjaingzb/awsAnalytics.git
+ git remote -v
+ git reset --
+ git reset -- company_master_data_upto_Mar_2015_Telangana.csv
+ git reset company_master_data_upto_Mar_2015_Telangana.csv
+ git reset T1_splitCSV/output.txt
+ git reset -- T2_freqCount/
+ git reset -- ../T2_freqCount/freqAna.Rout
+ git reset -- T3_WebJob/node_modules/*
+ git rm T3_WebJob/chart
+ git status
+ git status | more
+ gpg -a --export E084DAB9 | sudo apt-key add -
+ gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+ head -10 years.txt
+ head -10 years.txt | cut -d "-" -f2
+ head -10 years.txt | cut -d "-" -f3
+ head -10 years.txt | cut -d "-" -f3 | cut -d "\"" -f1
+ head -10 years.txt | cut -d "-" -f3 | grep "19[0-9][0-9]"
+ head -5 history.txt
+ head -5 output.txt
+ head -5 years.txt
+ history
+ history | grep meteor
+ history >> ~/history.txt
+ history >> history.txt
+ java
+ javac
+ java -version
+ ln -s ../rawDataSets/company_master_data_upto_Mar_2015_Telangana.csv company_master_data_upto_Mar_2015_Telangana.csv
+ ls
+ lsb_release -a
+ ls DustBin/
+ ls -l
+ ls -l ~/
+ ls- l
+ ls -la
+ ls -l ~/a2/src/main/java/com/swiftthoughts/App.java
+ ls -l DustBin/
+ ls -lh
+ ls -lh ../T1_splitCSV/output.txt
+ ls -l node_modules/
+ ls -lr
+ ls -l R/
+ ls -l rawDataSets/Rplots.pdf
+ ls -lrt
+ ls -l T1_splitCSV/company_master_data_upto_Mar_2015_Telangana.csv
+ ls -l T2_freqCount/.RData
+ ls -l T3_WebJob/chart
+ ls -l T3_WebJob/data.json
+ man tree
+ meteor create analytics
+ mkdir Analytics
+ mkdir Downloads
+ mkdir DustBin
+ mkdir meteor
+ mkdir Misc
+ mkdir rawDataSets
+ mkdir T1_splitCSV
+ mkdir T2_freqCount
+ mkdir Work
+ mv bashrc .bashrc
+ mv company.csv company_master_data_upto_Mar_2015_Telangana.csv
+ mv ~/company_master_data_upto_Mar_2015_Telangana.csv .
+ mv company_master_data_upto_Mar_2015_Telangana.csv rawDataSets/
+ mv Helper/ DustBin/
+ mv meteor/ a2/ fiddle/
+ mv myHistory.147483* myPackages.147483* DustBin/
+ mvn
+ mv ~/Node/ .
+ mv Node/ WebJob
+ mvn --version
+ mv Rplots.pdf ~/DustBin/
+ mv screenrc .screenrc
+ mv ~/T1_splitCSV/ .
+ mv ~/T2_freqCount/ .
+ mv T3_WebJob/chart ~/DustBin/
+ mv ~/TBD.txt
+ mv ~/TBD.txt .
+ mv WebJob/ T3_WebJob
+ ~/myScripts.sh
+ ./myScripts.sh
+ npm install chart.js --save
+ npm install -g localtunnel
+ pwd
+ R
+ rm ankit
+ rm company_master_data_upto_Mar_2015_Telangana.csv
+ rm history.txt
+ rm myPackages.1474832550.25Sep2016.txt myHistory.1474832550.25Sep2016.txt
+ rm T3_WebJob/chart
+ rm years.txt
+ rstudio
+ scree -A
+ screen
+ screen -A
+ screen -D
+ screen -D -r
+ screen -R AMIT_SCREEN
+ screen -S AMIT_SCREEN
+ screen -x AMIT_SCREEN
+ sudo add-apt-repository ppa:webupd8team/java
+ sudo apt-get install git
+ sudo apt-get install maven
+ sudo apt-get install npm
+ sudo apt-get install oracle-java8-installer
+ sudo apt-get install oracle-java8-set-default
+ sudo apt-get install tree
+ sudo apt-get update
+ sudo apt-get -y install r-base
+ sudo -i
+ sudo ls
+ sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list'
+ touch ankit
+ touch T3_WebJob/chart
+ tree
+ tree -L 3
+ vim amit.readme
+ vim analytics.js
+ vim bar.html
+ vim .bashrc
+ vim cmd.sh
+ vim commands
+ vim extractColumn.sh
+ vim .gitignore
+ vim history.txt
+ vim license.txt
+ vim myPackages.1474832984.25Sep2016.txt
+ vim myScripts.sh
+ vim README
+ vim README.amit.git
+ vim Rplots.pdf
+ vim ../T2_freqCount/.RData
+ vim T3_WebJob/bar.html
+ vim T3_WebJob/chart
+ vim TBD.txt
+ wc -l company_master_data_upto_Mar_2015_Telangana.csv
+ wc -l history.txt
+ wc -l output.txt

@@ -1,0 +1,10 @@
+ npm install chart.js --save
+ npm install -g localtunnel
+ sudo apt-get install git
+ sudo apt-get install maven
+ sudo apt-get install npm
+ sudo apt-get install oracle-java8-installer
+ sudo apt-get install oracle-java8-set-default
+ sudo apt-get install tree
+ sudo apt-get update
+ sudo apt-get -y install r-base

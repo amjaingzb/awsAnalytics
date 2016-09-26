@@ -1,0 +1,9 @@
+set foldmethod=marker
+set et
+set ts=2
+set shiftwidth=2
+set hlsearch
+set ai
+set ci
+set si
+set diffopt+=iwhite

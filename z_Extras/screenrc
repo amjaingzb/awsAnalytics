@@ -1,0 +1,5 @@
+defscrollback 30000
+startup_message off
+hardstatus on
+hardstatus alwayslastline
+caption always '%{= kg}%L=%{+u b} %=%{-u W}%?%-Lw%?%45L>%{Y}(%n*%f %t)%?(%u)%?%{W}%+Lw%{+u b} %=%-1=%{-u g}'

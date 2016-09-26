@@ -1,0 +1,12 @@
+#Maven : a2 is the directory
+mvn archetype:generate -DgroupId=com.swiftthoughts -DartifactId=a2 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+lt --port 3000 -s amjain
+
+/home/ubuntu/Work/Analytics/T3_WebJob>node analytics.js
+
+
+
+
+history(max.show = 50,reverse=FALSE)
+

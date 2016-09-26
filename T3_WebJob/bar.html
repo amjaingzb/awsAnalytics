@@ -1,62 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.js"></script>
 
 <script>
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
   function createMyChart(obj)
   {
-    var ctx = document.getElementById("myChart");
-//    var myLabels = [];
+//    var ctx = document.getElementById("myChart");
+    var ctx = document.getElementById("myChart").getContext("2d");
     var myLabels = new Array(obj[0].length-1) ;
+    var bgColors = new Array(obj[1].length) ;
     for(var i=0;i<obj[0].length-1;i++)
     {
       myLabels[i] = "" +obj[0][i]+"-"+obj[0][i+1] ;
     }
-    alert(myLabels[0]);
+    for(var i=0;i<obj[1].length;i++)
+    {
+      bgColors[i] = getRandomColor() ;
+    }
+//    alert(myLabels[0]);
 
     var data = {
         labels: myLabels,
         datasets: [
             {
-                label: "Company dataset",
-/*
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-*/
+                label: "# Companies Registered",
+                backgroundColor: bgColors,
                 borderWidth: 1,
-//                data: [65, 59, 80, 81, 56, 55, 40],
                 data: obj[1],
             }
         ]
     };
     var myBarChart = new Chart(ctx, {
-          type: 'bar',
-              data: data,
-            options: {
-                  scales: {
-                      xAxes: [{
-                          stacked: true
-                      }],
-                      yAxes: [{
-                          stacked: true
-                      }]
-                  }
-              }
+            type: 'bar',
+            data: data,
+                options: {
+                    //Copied from the sample 
+                    // Elements options apply to all of the options unless overridden in a dataset
+                    // In this case, we are setting the border of each bar to be 2px wide and green
+                    elements: {
+                        rectangle: {
+                            borderWidth: 1,
+                            borderColor: 'rgb(0, 0, 0)',
+                            borderSkipped: 'bottom'
+                        }
+                    },
+                    responsive: true,
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Telangana State'
+                    }
+                }
         });
 }
 
@@ -79,6 +86,17 @@
 <h1>Analytics</h1>
 <p>Histogram for Companies registered in Telangana Year Wise</p>
 <div id='jsonObjectData'></div>
+<div>
+ Select Year Range 
+</div>
+<!--
 <canvas id="myChart" width="200" height="200"></canvas>
+<canvas id="myChart" style="border:1px solid #000000;" ></canvas>
+@AMIT : Learning here : Basically the canvas growth was not being solved. 
+What was happening was that this chart extends the canvas. So the fix is to wrap it in the div by specifying the max size
+-->
+<div style="max-width:800px; max-height:400px">
+<canvas id="myChart" width="800" height="400" style="border:1px solid #000000;" ></canvas>
+</div>
 </body>
 </html>

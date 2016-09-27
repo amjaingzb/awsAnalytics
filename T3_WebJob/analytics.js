@@ -1,3 +1,6 @@
+const spawn = require('child_process').spawn;
+const execFile = require('child_process').execFile;
+
 var express = require('express');
 var app = express();
 //var app = require('express').createServer();
@@ -46,5 +49,23 @@ io.on('connection', function(socket){
   });
   socket.on('graphChangeMsg', function(msg){
     console.log('message: ' + msg);
+    var msgArgs = String(msg).split(",");
+    var strProgName = "../R_programs/countCompaniesRegisteredYearWise.R" ;
+    var strProgArgs = "-s "+msgArgs[0]+" -e "+msgArgs[1]+" -i "+msgArgs[2] ;
+    console.log("About to spawn the R program :"+strProgName+" "+strProgArgs);
+    execFile(strProgName, ["-s",msgArgs[0],"-e",msgArgs[1],"-i",msgArgs[2]],{cwd: '../R_programs'}, function(error, stdout, stderr){
+      if (error) {
+        console.log(stderr);
+        throw error;
+        //        return;
+      }
+      //      console.log(stdout);
+      if (!error) {
+        console.log("R program ran successfully");
+        socket.emit('graphUpdateMsg',"UpdateNow");
+      }
+    });
+    console.log("spawned the R program");
+
   });
 });

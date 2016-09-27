@@ -81,8 +81,11 @@
   }
   function afterPageLoad()
   {
-    //    setJsonValue();
+    setJsonValue();
     var socket = io(); /* exposes the io global and connects */
+    socket.on('graphUpdateMsg', function(msg){
+        document.getElementById("jsonObjectData").innerHTML = "graphUpdateMsg : "+msg +"<br>" + document.getElementById("jsonObjectData").innerHTML ;
+    });
     $('#formUpdateGraph').submit(function(){
         console.log("Form submitted With"+$('#startYear').val()+" and "+$('#endYear').val());
         if ($('#startYear').val() >= $('#endYear').val()){
@@ -92,7 +95,7 @@
 //        socket.emit('graphChangeMsg', $('#startYear').val());
 //        console.log( $( this ).serializeArray() );
 //        socket.emit('graphChangeMsg', $( this ).serializeArray() );
-        socket.emit('graphChangeMsg', [$('#startYear').val(),$('#endYear').val()]);
+        socket.emit('graphChangeMsg', [$('#startYear').val(),$('#endYear').val(),$('#interval').val()]);
 
 
         return false;
@@ -114,6 +117,7 @@
  <form id="formUpdateGraph" action="" >
    <input id = "startYear" type="number" min="1900" max="2020" value="1900" name="startYear" >
    <input id = "endYear" type="number" min="1900" max="2020" value="2020" name="endYear" >
+   <input id = "interval" type="number" min="1" max="20" value="10" name="interval" >
    <input type="submit" value="updateGraph">
  </form>
 

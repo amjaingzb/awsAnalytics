@@ -7,3 +7,10 @@ set ai
 set ci
 set si
 set diffopt+=iwhite
+set foldmethod=manual
+set viewoptions=cursor,folds,slash,unix 
+filetype plugin indent on
+
+
+"Using following vim plugins as of noew 
+"restore_view.vim

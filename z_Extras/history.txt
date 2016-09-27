@@ -18,10 +18,12 @@
  cat history.txt | grep apt-get | cut -d " " -f3
  cat history.txt | grep apt-get | cut -f1
  cat history.txt | grep npm | awk '{$1="" ; print $0}' | sort -u
+ cat history.txt | more
  cat myScripts.sh
  cat output.txt | sort -u | more
  cat output.txt | sort -u | wc -l
  cat packages.txt
+ cat pwd
  cat T2_freqCount/.RData
  cat TBD.txt
  cd
@@ -30,6 +32,7 @@
  cd analytics/
  cd Analytics/
  cd chart.js/
+ cd DustBin/
  cd fiddle/
  cd Helper/
  cd /home/ubuntu/meteor
@@ -44,15 +47,20 @@
  cd T2_freqCount/
  cd ../T2_freqCount/.RData
  cd T3_WebJob/
+ cd .vim
+ cd .vim/
  cd Work/
  cd Work/Analytics/
  chmod +x myScripts.sh
  clear
  clear ; echo TREE ; echo ; tree -L 2
  cp ~/DustBin/history.txt .
+ cp DustBin/myHistory.1474838384.25Sep2016.txt history.txt
+ cp DustBin/myPackages.1474838384.25Sep2016.txt packages.txt
  cp history.txt DustBin/
  curl https://install.meteor.com/ | sh
  date
+ echo $VIM_HOME
  ./extractColumn.sh
  git add .
  git add .gitignore
@@ -85,6 +93,7 @@
  git status | more
  gpg -a --export E084DAB9 | sudo apt-key add -
  gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+ grep push history.txt
  head -10 years.txt
  head -10 years.txt | cut -d "-" -f2
  head -10 years.txt | cut -d "-" -f3
@@ -112,11 +121,13 @@
  ls -l DustBin/
  ls -lh
  ls -lh ../T1_splitCSV/output.txt
+ ls -li
  ls -l node_modules/
  ls -lr
  ls -l R/
  ls -l rawDataSets/Rplots.pdf
  ls -lrt
+ ls -lrt DustBin/
  ls -l T1_splitCSV/company_master_data_upto_Mar_2015_Telangana.csv
  ls -l T2_freqCount/.RData
  ls -l T3_WebJob/chart
@@ -128,14 +139,17 @@
  mkdir DustBin
  mkdir meteor
  mkdir Misc
+ mkdir plugin
  mkdir rawDataSets
  mkdir T1_splitCSV
  mkdir T2_freqCount
+ mkdir .vim
  mkdir Work
  mv bashrc .bashrc
  mv company.csv company_master_data_upto_Mar_2015_Telangana.csv
  mv ~/company_master_data_upto_Mar_2015_Telangana.csv .
  mv company_master_data_upto_Mar_2015_Telangana.csv rawDataSets/
+ mv download_script.php\?src_id\=22634 restore_view.vim
  mv Helper/ DustBin/
  mv meteor/ a2/ fiddle/
  mv myHistory.147483* myPackages.147483* DustBin/
@@ -143,6 +157,7 @@
  mv ~/Node/ .
  mv Node/ WebJob
  mvn --version
+ mv restore_view.vim plugin/
  mv Rplots.pdf ~/DustBin/
  mv screenrc .screenrc
  mv ~/T1_splitCSV/ .
@@ -155,6 +170,7 @@
  ./myScripts.sh
  npm install chart.js --save
  npm install -g localtunnel
+ npm install socket.io --save
  pwd
  R
  rm ankit
@@ -188,12 +204,14 @@
  touch T3_WebJob/chart
  tree
  tree -L 3
+ vim
  vim amit.readme
  vim analytics.js
  vim bar.html
  vim .bashrc
  vim cmd.sh
  vim commands
+ vim download_script.php\?src_id\=22634
  vim extractColumn.sh
  vim .gitignore
  vim history.txt
@@ -207,6 +225,9 @@
  vim T3_WebJob/bar.html
  vim T3_WebJob/chart
  vim TBD.txt
+ vim ~/.vimrc
+ vim .vimrc
  wc -l company_master_data_upto_Mar_2015_Telangana.csv
  wc -l history.txt
  wc -l output.txt
+ wget http://www.vim.org/scripts/download_script.php?src_id=22634

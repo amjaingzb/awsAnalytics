@@ -1,5 +1,6 @@
  npm install chart.js --save
  npm install -g localtunnel
+ npm install socket.io --save
  sudo apt-get install git
  sudo apt-get install maven
  sudo apt-get install npm

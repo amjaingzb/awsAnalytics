@@ -1,7 +1,13 @@
+ ankit here
  cat ~/a2/pom.xml
  cat ~/a2/src/main/java/com/swiftthoughts/App.java
+ cat bashrc
  cat cmd.sh
+ cat company_master_data_upto_Mar_2015_Telangana.csv | awk '( print $3 )'
+ cat company_master_data_upto_Mar_2015_Telangana.csv | awk '{ print $3 }'
  cat extractColumn.sh
+ cat freqAna.R
+ cat freqAna.Rout
  cat git.pwd
  cat history.txt
  cat history.txt | awk '{$1="" ; print $0}' | sort -u
@@ -19,23 +25,35 @@
  cat history.txt | grep apt-get | cut -f1
  cat history.txt | grep npm | awk '{$1="" ; print $0}' | sort -u
  cat history.txt | more
+ cat main.html
+ cat main.js
  cat myScripts.sh
+ cat out.json
  cat output.txt | sort -u | more
  cat output.txt | sort -u | wc -l
+ cat out.txt
+ cat package.json
  cat packages.txt
  cat pwd
  cat T2_freqCount/.RData
  cat TBD.txt
+ cat years.txt
  cd
+ cd -
+ cd ..
  cd ../
  cd ../../
+ cd a2
  cd analytics/
  cd Analytics/
+ cd Analytics/T2_freqCount/
  cd chart.js/
+ cd client/
  cd DustBin/
  cd fiddle/
  cd Helper/
  cd /home/ubuntu/meteor
+ cd /home/ubuntu/meteor/analytics
  cd javascripts/
  cd meteor
  cd meteor/
@@ -43,7 +61,11 @@
  cd node_modules/
  cd rawDataSets/
  cd samples/
+ cd ../server/
+ cd server/
+ cd src/main/java/com/swiftthoughts/
  cd T1_splitCSV/
+ cd ../T2_freqCount/
  cd T2_freqCount/
  cd ../T2_freqCount/.RData
  cd T3_WebJob/
@@ -51,26 +73,48 @@
  cd .vim/
  cd Work/
  cd Work/Analytics/
+ cd Work/Analytics/T2_freqCount/
+ cd Work/Analytics/T3_WebJob/
+ cd z_Extras/
+ chmod +x cmd.sh
+ chmod +x extractColumn.sh
  chmod +x myScripts.sh
  clear
+ clear ; echo ; echo ; tree -L 2
  clear ; echo TREE ; echo ; tree -L 2
+ clear ; tree -L 2
+ cp analytics.html bar.html
+ cp ../company_master_data_upto_Mar_2015_Telangana.csv .
  cp ~/DustBin/history.txt .
  cp DustBin/myHistory.1474838384.25Sep2016.txt history.txt
  cp DustBin/myPackages.1474838384.25Sep2016.txt packages.txt
  cp history.txt DustBin/
  curl https://install.meteor.com/ | sh
  date
+ du -h node_modules/
  echo $VIM_HOME
  ./extractColumn.sh
+ ./extractColumn.sh > years.txt
+ find . -name "comp*"
+ find . -name "company*"
+ find . -name "fina*"
+ find . -name "find*"
  git add .
  git add .gitignore
  git add -- node_modules/amit.readme
  git add -- rawDataSets/README
  git add -- README.amit.git
  git add -- T1_splitCSV/company_master_data_upto_Mar_2015_Telangana.csv
+ git add T3_WebJob/analytics.js T3_WebJob/bar.html
  git add T3_WebJob/bar.html
+ git add z_Extras/
+ git add z_Extras/history.txt z_Extras/packages.txt z_Extras/vimrc
  git commit
+ git commit --amend
+ git commit -m "Adding hardlinked shellscripts,various rc files, basically helpers"
  git commit -m "First commit"
+ git commit -m "The parameters are not passed from webpage to the server - startYear and endYear"
+ git commit -m "vimrc updated for indentation and preservning folds using vim plugin"
  git config --global user.name "Amit Jain"
  git config --list
  git diff T3_WebJob/bar.html
@@ -78,6 +122,7 @@
  git help push
  git help reset
  git init
+ git push origin v0.1
  git push -u origin master
  git remote add origin https://github.com/amjaingzb/awsAnalytics.git
  git remote -v
@@ -89,19 +134,27 @@
  git reset -- ../T2_freqCount/freqAna.Rout
  git reset -- T3_WebJob/node_modules/*
  git rm T3_WebJob/chart
+ git show v0.1
  git status
  git status | more
+ git tag
+ git tag -a v0.1 -m "First version : platform ready end to end with little of analytics,web,scripts etc"
  gpg -a --export E084DAB9 | sudo apt-key add -
  gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+ grep AGRO company_master_data_upto_Mar_2015_Telangana.csv | wc -l
+ grep -i Technology company_master_data_upto_Mar_2015_Telangana.csv | wc -l
  grep push history.txt
  head -10 years.txt
  head -10 years.txt | cut -d "-" -f2
  head -10 years.txt | cut -d "-" -f3
  head -10 years.txt | cut -d "-" -f3 | cut -d "\"" -f1
  head -10 years.txt | cut -d "-" -f3 | grep "19[0-9][0-9]"
+ head -5 company_master_data_upto_Mar_2015_Telangana.csv
+ head -5 company_master_data_upto_Mar_2015_Telangana.csv | cut -d "," -f 2
  head -5 history.txt
  head -5 output.txt
  head -5 years.txt
+ hello Bhaiya
  history
  history | grep meteor
  history >> ~/history.txt
@@ -109,7 +162,17 @@
  java
  javac
  java -version
+ l
+ ll
+ ln ~/.bashrc bashrc
+ ln ~/commands commands
+ ln ~/history.txt history.txt
+ ln ~/myScripts.sh myScripts.sh
+ ln ~/packages.txt packages.txt
+ ln ~/.screenrc screenrc
  ln -s ../rawDataSets/company_master_data_upto_Mar_2015_Telangana.csv company_master_data_upto_Mar_2015_Telangana.csv
+ ln -s ../T1_splitCSV/output.txt dataForHistogram.txt
+ ln ~/.vimrc vimrc
  ls
  lsb_release -a
  ls DustBin/
@@ -118,10 +181,12 @@
  ls- l
  ls -la
  ls -l ~/a2/src/main/java/com/swiftthoughts/App.java
+ ls -l client/
  ls -l DustBin/
  ls -lh
  ls -lh ../T1_splitCSV/output.txt
  ls -li
+ ls -l .meteor/
  ls -l node_modules/
  ls -lr
  ls -l R/
@@ -132,19 +197,28 @@
  ls -l T2_freqCount/.RData
  ls -l T3_WebJob/chart
  ls -l T3_WebJob/data.json
+ ls T3_WebJob/
+ man cut
+ man ln
  man tree
+ meteor
  meteor create analytics
+ meteor run
  mkdir Analytics
  mkdir Downloads
  mkdir DustBin
  mkdir meteor
  mkdir Misc
+ mkdir Node
  mkdir plugin
  mkdir rawDataSets
  mkdir T1_splitCSV
  mkdir T2_freqCount
  mkdir .vim
  mkdir Work
+ mkdir Work/Backups
+ mkdir z_Extras
+ mv aws_eod_25Sep2016.tgz Work/Backups/
  mv bashrc .bashrc
  mv company.csv company_master_data_upto_Mar_2015_Telangana.csv
  mv ~/company_master_data_upto_Mar_2015_Telangana.csv .
@@ -154,9 +228,11 @@
  mv meteor/ a2/ fiddle/
  mv myHistory.147483* myPackages.147483* DustBin/
  mvn
+ mvn archetype:generate -DgroupId=com.swiftthoughts -DartifactId=a2 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
  mv ~/Node/ .
  mv Node/ WebJob
  mvn --version
+ mv R_code.txt freqAna.R
  mv restore_view.vim plugin/
  mv Rplots.pdf ~/DustBin/
  mv screenrc .screenrc
@@ -168,23 +244,37 @@
  mv WebJob/ T3_WebJob
  ~/myScripts.sh
  ./myScripts.sh
+ ~/myScripts.sh;bash
+ node analytics.js
+ node -version
+ node --version
  npm install chart.js --save
  npm install -g localtunnel
  npm install socket.io --save
+ ps -eaf | grep screen
  pwd
+ r
  R
+ R CMD BATCH freqAna.R
  rm ankit
  rm company_master_data_upto_Mar_2015_Telangana.csv
+ rmdir analytics/
  rm history.txt
  rm myPackages.1474832550.25Sep2016.txt myHistory.1474832550.25Sep2016.txt
+ rm out.txt
+ rm -rf *
+ rm -rf analytics/
+ rm -rf .meteor/
  rm T3_WebJob/chart
  rm years.txt
  rstudio
+ s
  scree -A
  screen
  screen -A
  screen -D
  screen -D -r
+ screen -ls
  screen -R AMIT_SCREEN
  screen -S AMIT_SCREEN
  screen -x AMIT_SCREEN
@@ -199,25 +289,38 @@
  sudo apt-get -y install r-base
  sudo -i
  sudo ls
+ sudo npm install express
  sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list'
+ touch analytics.css analytics.html analytics.js
  touch ankit
  touch T3_WebJob/chart
  tree
+ tree -L 2
  tree -L 3
  vim
  vim amit.readme
+ vim analytics.html
  vim analytics.js
+ vim App.java
  vim bar.html
+ vim bashrc
  vim .bashrc
  vim cmd.sh
  vim commands
+ vimdiff bar.html analytics.html
  vim download_script.php\?src_id\=22634
  vim extractColumn.sh
+ vim findImpWordsInCompName.R
+ vim freqAna.R
  vim .gitignore
  vim history.txt
  vim license.txt
+ vim main.
+ vim main.html
+ vim main.js
  vim myPackages.1474832984.25Sep2016.txt
  vim myScripts.sh
+ vim R_code.txt
  vim README
  vim README.amit.git
  vim Rplots.pdf
@@ -231,3 +334,4 @@
  wc -l history.txt
  wc -l output.txt
  wget http://www.vim.org/scripts/download_script.php?src_id=22634
+ who

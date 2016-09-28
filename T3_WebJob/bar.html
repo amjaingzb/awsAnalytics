@@ -17,8 +17,14 @@
     return color;
   }
 
+  var myBarChart = null ;
   function createMyChart(obj)
   {
+    if(myBarChart){
+      console.log("Chart already exists.");
+      myBarChart.destroy();
+      console.log("old chart destroyed");
+    }
 //    var ctx = document.getElementById("myChart");
     var ctx = document.getElementById("myChart").getContext("2d");
     var myLabels = new Array(obj[0].length-1) ;
@@ -44,7 +50,7 @@
             }
         ]
     };
-    var myBarChart = new Chart(ctx, {
+    myBarChart = new Chart(ctx, {
             type: 'bar',
             data: data,
                 options: {
@@ -70,21 +76,22 @@
         });
 }
 
-  function setJsonValue()
+  function drawDefaultChart()
   {
 //    alert("CAme here 1");
     var text = '<!--CHARTDATA-->';
     obj = JSON.parse(text);
-    document.getElementById("jsonObjectData").innerHTML = obj[1];
-//    alert("CAme here 2");
+//    document.getElementById("jsonObjectData").innerHTML = obj[1];
+    console.log(obj[1]);
     createMyChart(obj);
   }
   function afterPageLoad()
   {
-    setJsonValue();
+    drawDefaultChart();
     var socket = io(); /* exposes the io global and connects */
     socket.on('graphUpdateMsg', function(msg){
-        document.getElementById("jsonObjectData").innerHTML = "graphUpdateMsg : "+msg +"<br>" + document.getElementById("jsonObjectData").innerHTML ;
+//        document.getElementById("jsonObjectData").innerHTML = "graphUpdateMsg : "+msg +"<br>" + document.getElementById("jsonObjectData").innerHTML ;
+        console.log(msg);
         var jsonObj = JSON.parse(msg);
         createMyChart(jsonObj);
     });

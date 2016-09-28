@@ -28,8 +28,17 @@ if(args$v) {
 df <- read.table("dataForHistogram.txt",header = FALSE)
 myVector <- df[[1]]
 myVector <- myVector[!is.na(myVector)]
-#h<-hist(myVector, seq(startYear, endYear, step), plot=FALSE)
-h<-hist(myVector, seq(args$s, args$e, args$i), plot=FALSE)
+myVector <- myVector[myVector<=args$e]
+myVector <- myVector[myVector>=args$s]
+
+myBreaks <- seq(args$s, args$e, args$i) 
+#if (max(myBreaks) < max(myVector)) {
+#  myBreaks <- c(myBreaks,max(myVector))
+#}
+if (max(myBreaks) < args$e) {
+  myBreaks <- c(myBreaks,args$e)
+}
+h<-hist(myVector, myBreaks, plot=FALSE)
 l1 <- list(h$breaks, h$counts)
 j1 <- toJSON(l1)
 #write(j1, "out.json")

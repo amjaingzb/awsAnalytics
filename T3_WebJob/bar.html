@@ -85,6 +85,8 @@
     var socket = io(); /* exposes the io global and connects */
     socket.on('graphUpdateMsg', function(msg){
         document.getElementById("jsonObjectData").innerHTML = "graphUpdateMsg : "+msg +"<br>" + document.getElementById("jsonObjectData").innerHTML ;
+        var jsonObj = JSON.parse(msg);
+        createMyChart(jsonObj);
     });
     $('#formUpdateGraph').submit(function(){
         console.log("Form submitted With"+$('#startYear').val()+" and "+$('#endYear').val());

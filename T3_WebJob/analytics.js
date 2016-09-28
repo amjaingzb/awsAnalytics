@@ -53,7 +53,7 @@ io.on('connection', function(socket){
     var strProgName = "../R_programs/countCompaniesRegisteredYearWise.R" ;
     var strProgArgs = "-s "+msgArgs[0]+" -e "+msgArgs[1]+" -i "+msgArgs[2] ;
     console.log("About to spawn the R program :"+strProgName+" "+strProgArgs);
-    execFile(strProgName, ["-s",msgArgs[0],"-e",msgArgs[1],"-i",msgArgs[2]],{cwd: '../R_programs'}, function(error, stdout, stderr){
+    execFile(strProgName, ["-q","-s",msgArgs[0],"-e",msgArgs[1],"-i",msgArgs[2]],{cwd: '../R_programs'}, function(error, stdout, stderr){
       if (error) {
         console.log(stderr);
         throw error;
@@ -62,7 +62,7 @@ io.on('connection', function(socket){
       //      console.log(stdout);
       if (!error) {
         console.log("R program ran successfully");
-        socket.emit('graphUpdateMsg',"UpdateNow");
+        socket.emit('graphUpdateMsg',stdout);
       }
     });
     console.log("spawned the R program");

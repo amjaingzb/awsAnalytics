@@ -32,5 +32,6 @@ myVector <- myVector[!is.na(myVector)]
 h<-hist(myVector, seq(args$s, args$e, args$i), plot=FALSE)
 l1 <- list(h$breaks, h$counts)
 j1 <- toJSON(l1)
-write(j1, "out.json")
+#write(j1, "out.json")
+cat(j1)
 

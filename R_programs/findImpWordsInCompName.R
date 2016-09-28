@@ -1,29 +1,43 @@
-compData <- read.csv("~/Work/Analytics/T1_splitCSV/company_master_data_upto_Mar_2015_Telangana.csv")
-#compData <- compData[sample(1:nrow(compData),500,replace=FALSE)]
+#compData <- read.csv("~/Work/Analytics/T1_splitCSV/company_master_data_upto_Mar_2015_Telangana.csv")
+compData <- read.csv("sampleData.txt")
+compDataNames <- compData[3]; 
+categoryCount <- 3
+freqThreshold <- 1
+compDataNamesSample <- levels(compDataNames[[1]])
+#compDataNamesSample <- levels(compDataNames[[1]])[sample(1:nrow(compDataNames),20,replace=FALSE)]
 splitSentence <- function(sentence){
-  strsplit(sentence, " ") }
+    strsplit(sentence, " ") }
 
-  apply(compData[3],1,splitSentence)
-   compNameWords <- apply(compData[3],1,splitSentence)
-   compNameWordsSplit <- unlist(compNameWords)
+       compNameWords <- splitSentence(compDataNamesSample)
+          compNameWordsSplit <- unlist(compNameWords)
 
-   compNameWordsSplitTable <- table(compNameWordsSplit)
-impCompWords <-   compNameWordsSplitTable[compNameWordsSplitTable > 1]
-
+             compNameWordsSplitTable <- table(compNameWordsSplit)
+             impWords <-  compNameWordsSplitTable[compNameWordsSplitTable > freqThreshold]
+              featureNames <- names(impWords)
 #featureNames <- c('CHIT', 'CONSTRUCTIONS', 'ESTATES', 'FARMS','FINANCE', 'INDIA', '(INDIA)', 'INFRA','IT' ,'LIMITED','LTD', 'LTD.','POWER','PRIVATE', 'PROJECTS','PVT', 'SAI', 'SERVICES', 'SOFTWARE' , 'SRI', 'SYSTEMS','TECHNOLOGIES')
-featureNames <- c('CHIT', 'CONSTRUCTIONS', 'ESTATES', 'FARMS','FINANCE', 'INDIA', '(INDIA)', 'INFRA','IT' ,'POWER','PRIVATE', 'PROJECTS','PVT', 'SAI', 'SERVICES', 'SOFTWARE' , 'SRI', 'SYSTEMS','TECHNOLOGIES')
+#featureNames <- c('CHIT', 'CONSTRUCTIONS', 'ESTATES', 'FARMS','FINANCE', 'INDIA', '(INDIA)', 'INFRA','IT' ,'POWER','PRIVATE', 'PROJECTS','PVT', 'SAI', 'SERVICES', 'SOFTWARE' , 'SRI', 'SYSTEMS','TECHNOLOGIES')
+#featureNames <- c('CHIT', 'CONSTRUCTIONS', 'ESTATES', 'FARMS','FINANCE', 'INDIA', '(INDIA)', 'INFRA','IT' ,'POWER','PRIVATE', 'PROJECTS','PVT', 'SAI', 'SERVICES', 'SOFTWARE' , 'SRI', 'SYSTEMS','TECHNOLOGIES')
 #featureFrame <- data.frame(matrix(rep.int(0,length(featureNames)*length(compNameWords)),nrow=length(compNameWords), ncol=length(featureNames)))
 
  colnames(featureFrame) <- featureNames
 
-extractFeature <- function(compNameWordsRow) {
-as.numeric(featureNames %in% unlist(compNameWordsRow)) }
-featureFramePopulated <- lapply(compNameWords , extractFeature)
-featureFramePopulatedAsNumeric <- matrix(unlist(featureFramePopulated), nrow=length(featureFramePopulated), byrow=TRUE)
-kResult <- kmeans(featureFramePopulatedAsNumeric,8)
+ extractFeature <- function(compNameWordsRow) {
+   as.numeric(featureNames %in% unlist(compNameWordsRow)) }
+   featureFramePopulated <- lapply(compNameWords , extractFeature)
+   featureFramePopulatedAsNumeric <- matrix(unlist(featureFramePopulated), nrow=length(featureFramePopulated), byrow=TRUE)
+   require(klaR)
+   kResult <- kmodes(featureFramePopulatedAsNumeric,categoryCount,iter.max=100)
 
-for(ctgry in seq(1:8)){
-    temp = compData[[3]][kResult$cluster==ctgry]
-  tempM = matrix(unlist(temp),nrow=length(temp),byrow=TRUE)
-    write(tempM,file=paste(ctgry,"ctgry.txt"))
-}
+   for(ctgry in seq(1:categoryCount)){
+         temp = compDataNamesSample[kResult$cluster==ctgry]
+           tempM = matrix(unlist(temp),nrow=length(temp),byrow=TRUE)
+               write(tempM,file=paste(ctgry,"ctgry.txt"))
+   }
+   categoriesFeatures <- matrix(unlist(kResult$modes),nrow=length(kResult$modes), byrow=TRUE)
+
+   for(categoryType in 1:ncol(categoriesFeatures))
+   {
+      a <- paste(categoryType,'is :',collapse=" ")
+    b <- paste(featureNames[categoriesFeatures[,categoryType]=="1"], collapse=" ")
+     print(paste(a,b, collapse=" "))
+   }

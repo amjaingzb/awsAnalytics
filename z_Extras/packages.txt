@@ -2,6 +2,7 @@
  npm install -g localtunnel
  npm install socket.io --save
  sudo apt-get install git
+ sudo apt-get install htop
  sudo apt-get install maven
  sudo apt-get install npm
  sudo apt-get install oracle-java8-installer

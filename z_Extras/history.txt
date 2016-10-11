@@ -1,18 +1,33 @@
  ankit here
+ cat 1\ ctgry.txt
+ cat 2\ ctgry.txt
+ cat 3\ ctgry.txt
+ cat 4\ ctgry.txt
+ cat 5\ ctgry.txt
+ cat 6\ ctgry.txt
+ cat 8\ ctgry.txt
  cat ~/a2/pom.xml
  cat ~/a2/src/main/java/com/swiftthoughts/App.java
  cat bashrc
  cat cmd.sh
  cat company_master_data_upto_Mar_2015_Telangana.csv | awk '( print $3 )'
  cat company_master_data_upto_Mar_2015_Telangana.csv | awk '{ print $3 }'
+ cat countCompaniesRegisteredYearWise.R
+ cat dataForHistogram.txt
  cat extractColumn.sh
+ cat findImpWordsInCompName.R
  cat freqAna.R
  cat freqAna.Rout
+ cat ~/git.pwd
  cat git.pwd
+ cat git.pws
+ cat history | grep git | grep add
  cat history.txt
  cat history.txt | awk '{$1="" ; print $0}' | sort -u
  cat history.txt | awk '{$1="" ; print $0}' | sort -u | wc -l
  cat history.txt | egrep "apt-get|npm" | awk '{$1="" ; print $0}' | sort -u
+ cat history.txt | grep 3000
+ cat history.txt | grep amjain
  cat history.txt | grep apt-get
  cat history.txt | grep apt-get | awk '{$1="" ; print $0}'
  cat history.txt | grep apt-get | awk '{$1="" ; print $0}' | sort -u
@@ -23,6 +38,9 @@
  cat history.txt | grep apt-get | cut -d " " -f2
  cat history.txt | grep apt-get | cut -d " " -f3
  cat history.txt | grep apt-get | cut -f1
+ cat history.txt | grep git | grep add
+ cat history.txt | grep git | grep push
+ cat history.txt | grep local
  cat history.txt | grep npm | awk '{$1="" ; print $0}' | sort -u
  cat history.txt | more
  cat main.html
@@ -35,8 +53,11 @@
  cat package.json
  cat packages.txt
  cat pwd
+ cat README.amit.git
+ cat run.sh
  cat T2_freqCount/.RData
  cat TBD.txt
+ cat /tmp/delme
  cat years.txt
  cd
  cd -
@@ -60,6 +81,7 @@
  cd Node/
  cd node_modules/
  cd rawDataSets/
+ cd R_programs/
  cd samples/
  cd ../server/
  cd server/
@@ -77,22 +99,45 @@
  cd Work/Analytics/T3_WebJob/
  cd z_Extras/
  chmod +x cmd.sh
+ chmod +x countCompaniesRegisteredYearWise.R
  chmod +x extractColumn.sh
  chmod +x myScripts.sh
  clear
  clear ; echo ; echo ; tree -L 2
  clear ; echo TREE ; echo ; tree -L 2
  clear ; tree -L 2
+ ./countCompaniesRegisteredYearWise.R
+ ./countCompaniesRegisteredYearWise.R -i 3
+ ./countCompaniesRegisteredYearWise.R -i 30
+ ./countCompaniesRegisteredYearWise.R -q > /tmp/delme
+ ./countCompaniesRegisteredYearWise.R -s 1900 -e 1910 -i 2
+ ./countCompaniesRegisteredYearWise.R -s 1900 -e 1910 -i 3
+ ./countCompaniesRegisteredYearWise.R -s 1900 -e 1910 -i 7
+ ./countCompaniesRegisteredYearWise.R -s 1900 -e 1920 -i 3
+ ./countCompaniesRegisteredYearWise.R -s 1900 -e 1920 -i 4
+ ./countCompaniesRegisteredYearWise.R -s 1900 -e 2020
+ ./countCompaniesRegisteredYearWise.R -s 1900 -e 2020 -i 20
+ ./countCompaniesRegisteredYearWise.R -s 1925 -e 1936 -i 3
+ ./countCompaniesRegisteredYearWise.R -s 1960 -e 2020
+ ./countCompaniesRegisteredYearWise.R -s 1970 -e 2020
+ ./countCompaniesRegisteredYearWise.R -s 1970 -e 2020 -i 5
+ ./countCompaniesRegisteredYearWise.R -s 1980 -e 2020 -i 1
+ ./countCompaniesRegisteredYearWise.R -s 1980 -e 2020 -i 5
+ ./countCompaniesRegisteredYearWise.R > /tmp/delme
  cp analytics.html bar.html
  cp ../company_master_data_upto_Mar_2015_Telangana.csv .
  cp ~/DustBin/history.txt .
  cp DustBin/myHistory.1474838384.25Sep2016.txt history.txt
  cp DustBin/myPackages.1474838384.25Sep2016.txt packages.txt
  cp history.txt DustBin/
+ cp out.json out.json.new
  curl https://install.meteor.com/ | sh
  date
+ diff out.json out.json.new
  du -h node_modules/
+ echo $EDITOR
  echo $VIM_HOME
+ export EDITOR=vim
  ./extractColumn.sh
  ./extractColumn.sh > years.txt
  find . -name "comp*"
@@ -100,28 +145,46 @@
  find . -name "fina*"
  find . -name "find*"
  git add .
+ git add countCompaniesRegisteredYearWise.R
+ git add countCompaniesRegisteredYearWise.R ../T3_WebJob/analytics.js ../T3_WebJob/bar.html
+ git add findImpWordsInCompName.R
  git add .gitignore
  git add -- node_modules/amit.readme
  git add -- rawDataSets/README
  git add -- README.amit.git
+ git add R_programs/countCompaniesRegisteredYearWise.R
+ git add run.sh ../z_Extras/bashrc ../z_Extras/history.txt
  git add -- T1_splitCSV/company_master_data_upto_Mar_2015_Telangana.csv
  git add T3_WebJob/analytics.js T3_WebJob/bar.html
+ git add ../T3_WebJob/bar.html
  git add T3_WebJob/bar.html
  git add z_Extras/
+ git add z_Extras/bashrc
  git add z_Extras/history.txt z_Extras/packages.txt z_Extras/vimrc
+ git branch
  git commit
  git commit --amend
  git commit -m "Adding hardlinked shellscripts,various rc files, basically helpers"
+ git commit -m "Features are selected automatically"
  git commit -m "First commit"
+ git commit -m "First version of Company Categorisation using kmeans"
+ git commit -m "Misc changes + renamed directory T2_freqCount to R_programs"
  git commit -m "The parameters are not passed from webpage to the server - startYear and endYear"
  git commit -m "vimrc updated for indentation and preservning folds using vim plugin"
  git config --global user.name "Amit Jain"
  git config --list
+ git diff findImpWordsInCompName.R
  git diff T3_WebJob/bar.html
+ git diff z_Extras/bashrc
+ #git diff z_Extras/history.txt
+ git diff z_Extras/history.txt
  git help add
  git help push
  git help reset
  git init
+ git mv cmd.sh run.sh
+ git mv T2_freqCount/ R_programs
+ git push origin master
  git push origin v0.1
  git push -u origin master
  git remote add origin https://github.com/amjaingzb/awsAnalytics.git
@@ -159,6 +222,7 @@
  history | grep meteor
  history >> ~/history.txt
  history >> history.txt
+ htop
  java
  javac
  java -version
@@ -171,18 +235,23 @@
  ln ~/packages.txt packages.txt
  ln ~/.screenrc screenrc
  ln -s ../rawDataSets/company_master_data_upto_Mar_2015_Telangana.csv company_master_data_upto_Mar_2015_Telangana.csv
+ ln -s ../R_programs/out.json data.json
  ln -s ../T1_splitCSV/output.txt dataForHistogram.txt
  ln ~/.vimrc vimrc
  ls
+ ls -al
  lsb_release -a
+ ls ~/DustBin/
  ls DustBin/
  ls -l
  ls -l ~/
+ ls -l ../../
  ls- l
  ls -la
  ls -l ~/a2/src/main/java/com/swiftthoughts/App.java
  ls -l client/
  ls -l DustBin/
+ ls -l findImpWordsInCompName.R
  ls -lh
  ls -lh ../T1_splitCSV/output.txt
  ls -li
@@ -190,6 +259,7 @@
  ls -l node_modules/
  ls -lr
  ls -l R/
+ ls -l ../rawDataSets/
  ls -l rawDataSets/Rplots.pdf
  ls -lrt
  ls -lrt DustBin/
@@ -197,8 +267,11 @@
  ls -l T2_freqCount/.RData
  ls -l T3_WebJob/chart
  ls -l T3_WebJob/data.json
+ ls ../rawDataSets/
  ls T3_WebJob/
+ lt --port 3000 -s amjain
  man cut
+ man htop
  man ln
  man tree
  meteor
@@ -224,6 +297,7 @@
  mv ~/company_master_data_upto_Mar_2015_Telangana.csv .
  mv company_master_data_upto_Mar_2015_Telangana.csv rawDataSets/
  mv download_script.php\?src_id\=22634 restore_view.vim
+ mv ../findImpWordsInCompName.R .
  mv Helper/ DustBin/
  mv meteor/ a2/ fiddle/
  mv myHistory.147483* myPackages.147483* DustBin/
@@ -251,13 +325,20 @@
  npm install chart.js --save
  npm install -g localtunnel
  npm install socket.io --save
+ ort 3000 -s amjain
  ps -eaf | grep screen
  pwd
  r
  R
+ R CMD BATCH countCompaniesRegisteredYearWise.R '--args startYear=2000 endYear=2010 step=1'
  R CMD BATCH freqAna.R
+ r cmdLineExample.r
  rm ankit
+ rm ./'--args startYear=2000 endYear=2010 step=1'
+ rm "--args startYear=2000 endYear=2010 step=1"
+ rm cmdLineExample.r
  rm company_master_data_upto_Mar_2015_Telangana.csv
+ rm data.json
  rmdir analytics/
  rm history.txt
  rm myPackages.1474832550.25Sep2016.txt myHistory.1474832550.25Sep2016.txt
@@ -267,7 +348,11 @@
  rm -rf .meteor/
  rm T3_WebJob/chart
  rm years.txt
+ ../R_programs/countCompaniesRegisteredYearWise.R -s 1900 -e 2020 -i 11
+ Rscript
+ Rscript cmdLineExample.r
  rstudio
+ ./run.sh
  s
  scree -A
  screen
@@ -275,11 +360,15 @@
  screen -D
  screen -D -r
  screen -ls
+ screen -r
+ screen -r 1926.AMIT_SCREEN
  screen -R AMIT_SCREEN
  screen -S AMIT_SCREEN
+ screen -x 1926.AMIT_SCREEN
  screen -x AMIT_SCREEN
  sudo add-apt-repository ppa:webupd8team/java
  sudo apt-get install git
+ sudo apt-get install htop
  sudo apt-get install maven
  sudo apt-get install npm
  sudo apt-get install oracle-java8-installer
@@ -294,19 +383,30 @@
  touch analytics.css analytics.html analytics.js
  touch ankit
  touch T3_WebJob/chart
+ t push -u origin master
  tree
  tree -L 2
  tree -L 3
  vim
+ vim 1\ ctgry.txt
+ vim 2\ ctgry.txt
+ vim 3\ ctgry.txt
+ vim 4\ ctgry.txt
+ vim 5\ ctgry.txt
+ vim 6\ ctgry.txt
+ vim 8\ ctgry.txt
  vim amit.readme
  vim analytics.html
  vim analytics.js
  vim App.java
  vim bar.html
  vim bashrc
+ vim ~/.bashrc
  vim .bashrc
+ vim cmdLineExample.r
  vim cmd.sh
  vim commands
+ vim countCompaniesRegisteredYearWise.R
  vimdiff bar.html analytics.html
  vim download_script.php\?src_id\=22634
  vim extractColumn.sh
@@ -321,9 +421,14 @@
  vim myPackages.1474832984.25Sep2016.txt
  vim myScripts.sh
  vim R_code.txt
+ vim ../.RData
  vim README
  vim README.amit.git
+ vim ../.Rhistory
  vim Rplots.pdf
+ vim R_programs/extractYearRegisteredColumn.R
+ vim run.sh
+ vim sampleData.txt
  vim ../T2_freqCount/.RData
  vim T3_WebJob/bar.html
  vim T3_WebJob/chart
